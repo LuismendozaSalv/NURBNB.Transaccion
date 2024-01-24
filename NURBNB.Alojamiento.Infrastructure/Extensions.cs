@@ -55,6 +55,7 @@ namespace NURBNB.Alojamiento.Infrastructure
 			services.AddScoped<IComodidadRepository, ComodidadRepository>();
 			services.AddScoped<IDireccionRepository, DireccionRepository>();
 			services.AddScoped<IPropiedadComodidadRepository, PropiedadComodidadRepository>();
+			services.AddScoped<ITransaccionRepository, TransaccionRepository>();
 
 			using var scope = services.BuildServiceProvider().CreateScope();
 			if (!isDevelopment)

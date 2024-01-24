@@ -10,9 +10,9 @@ namespace NURBNB.Alojamiento.Application.UseCases.Transacciones.Command.CrearTra
 {
 	public class CrearTransaccionCommand : IRequest<Guid>
 	{
-		public Monto Monto { get; private set; }
-		public Guid ReservaId { get; private set; }
-		public Guid UsuarioId { get; private set; }
-		public TipoTransaccion TipoTransaccion { get; private set; }
+		public Monto Monto { get; set; }
+		public Guid ReservaId { get; set; }
+		public Guid UsuarioId { get; set; }
+		public TipoTransaccion TipoTransaccion { get; set; }
 	}
 }

@@ -26,7 +26,7 @@ namespace NURBNB.Alojamiento.Infrastructure.UsesCases.Transacciones.Query
 		}
 		public async Task<ICollection<Transaccion>> Handle(IGetTransaccionList request, CancellationToken cancellationToken)
 		{
-			return (ICollection<Transaccion>)_transaccionRepository.FindAll();
+			return (ICollection<Transaccion>)_transaccionRepository.FindAll().Result;
 		}
 
 

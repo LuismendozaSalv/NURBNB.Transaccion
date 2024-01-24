@@ -11,6 +11,8 @@ using NURBNB.Alojamiento.Application.UseCases.Alojamiento.Command.ModificarReser
 using NURBNB.Alojamiento.Application.UseCases.Alojamiento.Query;
 using NURBNB.Alojamiento.Application.UseCases.Ciudad.Command.CrearCiudad;
 using NURBNB.Alojamiento.Application.UseCases.Ciudad.Query;
+using NURBNB.Alojamiento.Application.UseCases.Transacciones.Command.CrearTransaccion;
+using NURBNB.Alojamiento.Application.UseCases.Transacciones.Query;
 
 namespace NURBNB.Alojamiento.WebAPI.Controllers
 {
@@ -163,6 +165,32 @@ namespace NURBNB.Alojamiento.WebAPI.Controllers
 			var items = await _mediator.Send(new IGetPropiedadByUsuarioIdQueryList()
 			{
 				UsuarioId = usuarioId
+			});
+
+			return Ok(items);
+		}
+
+		[HttpPost]
+		[Route("CrearTransaccion")]
+		public async Task<IActionResult> CrearTransaccion([FromBody] CrearTransaccionCommand command)
+		{
+			try
+			{
+				var transaccionId = await _mediator.Send(command);
+				return Ok(transaccionId);
+			}
+			catch (Exception ex)
+			{
+				return BadRequest(ex.Message);
+			}
+		}
+
+		[HttpGet]
+		[Route("ListarTransacciones")]
+		public async Task<IActionResult> ListarTransacciones()
+		{
+			var items = await _mediator.Send(new IGetTransaccionList()
+			{
 			});
 
 			return Ok(items);
