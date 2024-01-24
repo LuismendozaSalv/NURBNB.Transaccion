@@ -13,6 +13,7 @@ namespace NURBNB.Alojamiento.Infrastructure.EF.Context
 		public virtual DbSet<DireccionReadModel> Direccion { set; get; }
 		public virtual DbSet<ComodidadReadModel> Comodidad { set; get; }
 		public virtual DbSet<PropiedadComodidadReadModel> PropiedadComodidad { set; get; }
+		public virtual DbSet<TransaccionReadModel> Transaccion { set; get; }
 		public ReadDbContext(DbContextOptions<ReadDbContext> options) : base(options)
 		{
 		}
