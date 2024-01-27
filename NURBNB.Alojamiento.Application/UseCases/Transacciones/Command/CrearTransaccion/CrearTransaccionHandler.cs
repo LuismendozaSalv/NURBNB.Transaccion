@@ -41,6 +41,7 @@ namespace NURBNB.Alojamiento.Application.UseCases.Transacciones.Command.CrearTra
 					break;
 
 			}
+			transaccionCreada.AddPagoReservaDomainEvent();
 			await _transaccionRepository.CreateAsync(transaccionCreada);
 
 			await _unitOfWork.Commit();

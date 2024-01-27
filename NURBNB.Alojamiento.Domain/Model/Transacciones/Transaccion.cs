@@ -1,4 +1,5 @@
 ﻿using NURBNB.Alojamiento.Domain.Model.Alojamiento;
+using NURBNB.Alojamiento.Domain.Model.Transacciones.Events;
 using Restaurant.SharedKernel.Core;
 using System;
 using System.Collections.Generic;
@@ -22,6 +23,14 @@ namespace NURBNB.Alojamiento.Domain.Model.Transaccion
 			ReservaId = reservaId;
 			UsuarioId = usuarioId;
 			TipoTransaccion = tipoTransaccion;
+		}
+
+		public void AddPagoReservaDomainEvent()
+		{
+			AddDomainEvent(new PagoReservaRegistrado(
+					this.ReservaId,
+					this.Id
+				));
 		}
 	}
 }

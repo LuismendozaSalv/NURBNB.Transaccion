@@ -105,6 +105,7 @@ namespace NURBNB.Alojamiento.Infrastructure
 
 		private static IServiceCollection AddMassTransitWithRabbitMq(IServiceCollection services, IConfiguration configuration)
 		{
+			services.AddScoped<IBusService, MassTransitBusService>();
 			var serviceName = configuration.GetValue<string>("ServiceName");
 			var rabbitMQSettings = configuration.GetSection(nameof(RabbitMQSettings)).Get<RabbitMQSettings>();
 

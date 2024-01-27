@@ -169,31 +169,5 @@ namespace NURBNB.Alojamiento.WebAPI.Controllers
 
 			return Ok(items);
 		}
-
-		[HttpPost]
-		[Route("CrearTransaccion")]
-		public async Task<IActionResult> CrearTransaccion([FromBody] CrearTransaccionCommand command)
-		{
-			try
-			{
-				var transaccionId = await _mediator.Send(command);
-				return Ok(transaccionId);
-			}
-			catch (Exception ex)
-			{
-				return BadRequest(ex.Message);
-			}
-		}
-
-		[HttpGet]
-		[Route("ListarTransacciones")]
-		public async Task<IActionResult> ListarTransacciones()
-		{
-			var items = await _mediator.Send(new IGetTransaccionList()
-			{
-			});
-
-			return Ok(items);
-		}
 	}
 }
